@@ -97,7 +97,8 @@ contains
                             dust1_index,sf_start,sf_trunc,sf_slope,&
                             duste_gamma,duste_umin,duste_qpah,&
                             sigma_smooth,min_wave_smooth,max_wave_smooth,&
-                            gas_logu,gas_logz,igm_factor,fagn,agn_tau)
+                            gas_logu,gas_logz,igm_factor,fagn,agn_tau,&
+                            fagni,agn_incl)
 
     ! Set all the parameters that don't affect the SSP computation.
 
@@ -115,7 +116,8 @@ contains
                             dust1_index,sf_start,sf_trunc,sf_slope,&
                             duste_gamma,duste_umin,duste_qpah,&
                             sigma_smooth,min_wave_smooth,max_wave_smooth,&
-                            gas_logu,gas_logz,igm_factor,fagn,agn_tau
+                            gas_logu,gas_logz,igm_factor,fagn,agn_tau,&
+                            fagni,agn_incl
 
     smooth_velocity=smooth_velocity0
     redshift_colors=redshift_colors0
@@ -166,6 +168,8 @@ contains
     pset%igm_factor=igm_factor
     pset%fagn=fagn
     pset%agn_tau=agn_tau
+    pset%fagni=fagni
+    pset%agn_incl=agn_incl
     
   end subroutine
 
@@ -258,6 +262,7 @@ contains
              call ssp(zmet)
           endif
        enddo
+       write(6,*)'In fsps.f90, ztype eq 3'
        call compsp(0,nz,outfile,mass_ssp_zz,lbol_ssp_zz,&
             spec_ssp_zz,pset,ocompsp)
     endif

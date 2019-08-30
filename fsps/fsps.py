@@ -424,6 +424,15 @@ class StellarPopulation(object):
         Optical depth of the AGN dust torus, which affects the shape of the AGN
         SED.  Outside the range (5, 150) the AGN SED is an
         extrapolation.
+
+    :param fagni: (default: 0.0)
+        The total luminosity of the AGN, expressed as a fraction of the
+        bolometric stellar luminosity (so it can be greater than 1). The shape
+        of the AGN SED is JianWei Lyn.
+
+    :param agn_incl: (default: 10)
+        Inclination of the AGN dust torus, which affects the shape of the AGN
+        SED.  Outside the range (0, 90) the AGN SED is an extrapolation.
     """
 
     def __init__(self, compute_vega_mags=False, vactoair_flag=False,
@@ -500,7 +509,9 @@ class StellarPopulation(object):
             duste_umin=1.0,
             duste_qpah=3.5,
             fagn=0.0,
-            agn_tau=10.0
+            agn_tau=10.0,
+            fagni=0.0,
+            agn_incl=10.0
         )
 
         # Parse any input options.
@@ -1172,7 +1183,8 @@ class ParameterSet(object):
                   "sf_start", "sf_trunc", "sf_slope", "duste_gamma",
                   "duste_umin", "duste_qpah", "sigma_smooth",
                   "min_wave_smooth", "max_wave_smooth", "gas_logu",
-                  "gas_logz", "igm_factor", "fagn", "agn_tau"]
+                  "gas_logz", "igm_factor", "fagn", "agn_tau", "fagni",
+                  "agn_incl"]
 
     @property
     def all_params(self):
