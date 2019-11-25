@@ -98,7 +98,7 @@ contains
                             duste_gamma,duste_umin,duste_qpah,&
                             sigma_smooth,min_wave_smooth,max_wave_smooth,&
                             gas_logu,gas_logz,igm_factor,fagn,agn_tau,&
-                            fagni,agn_incl)
+                            fagni,agn_incl,fagnp)
 
     ! Set all the parameters that don't affect the SSP computation.
 
@@ -117,7 +117,7 @@ contains
                             duste_gamma,duste_umin,duste_qpah,&
                             sigma_smooth,min_wave_smooth,max_wave_smooth,&
                             gas_logu,gas_logz,igm_factor,fagn,agn_tau,&
-                            fagni,agn_incl
+                            fagni,agn_incl,fagnp
 
     smooth_velocity=smooth_velocity0
     redshift_colors=redshift_colors0
@@ -170,6 +170,7 @@ contains
     pset%agn_tau=agn_tau
     pset%fagni=fagni
     pset%agn_incl=agn_incl
+    pset%fagnp=fagnp
     
   end subroutine
 

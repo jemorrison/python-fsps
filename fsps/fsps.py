@@ -433,6 +433,10 @@ class StellarPopulation(object):
     :param agn_incl: (default: 10)
         Inclination of the AGN dust torus, which affects the shape of the AGN
         SED.  Outside the range (0, 90) the AGN SED is an extrapolation.
+
+    :param fagnp: (default: 1.0)
+        Fraction of Polar dust component of AGN, which affects the shape of
+        the AGN SED.  Outside the range (0, 5) the AGN SED is an extrapolation.
     """
 
     def __init__(self, compute_vega_mags=False, vactoair_flag=False,
@@ -511,7 +515,8 @@ class StellarPopulation(object):
             fagn=0.0,
             agn_tau=10.0,
             fagni=0.0,
-            agn_incl=10.0
+            agn_incl=10.0,
+            fagnp=0.0
         )
 
         # Parse any input options.
@@ -1184,7 +1189,7 @@ class ParameterSet(object):
                   "duste_umin", "duste_qpah", "sigma_smooth",
                   "min_wave_smooth", "max_wave_smooth", "gas_logu",
                   "gas_logz", "igm_factor", "fagn", "agn_tau", "fagni",
-                  "agn_incl"]
+                  "agn_incl","fagnp"]
 
     @property
     def all_params(self):
